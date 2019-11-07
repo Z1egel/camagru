@@ -1,0 +1,655 @@
+@font-face {
+    font-family: Zwodrei;
+    src: url(../fonts/zwodrei_bold_demo.ttf);
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+body {
+    min-width: 900px;
+    background: url("../img/icons/back.jpg") no-repeat center fixed;
+    background-size: cover;
+    position: relative;
+    padding: 0;
+}
+
+header {
+    height: 100px;
+    text-align: center;
+    position: relative;
+}
+
+header, footer {
+    background-color: rgba(255,255,255,0.2);
+}
+
+footer {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+button:hover, .fa-thumbs-up:hover {
+    cursor: pointer;
+}
+
+.fa-thumbs-up .active {
+    color: red;
+}
+
+/* <Common rules> */
+
+.nonselectable {
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+
+.pt-30 {
+    padding-top: 30px !important;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.full-width {
+    width: 100%;
+}
+
+/* </Common rules> */
+
+/* <Logo> */
+
+.logo {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    float: left;
+    margin-left: 40px;
+    height: 100%;
+}
+.logo span {
+    display: block;
+    font-family: Zwodrei, serif;
+    font-size: 50px;
+    letter-spacing: 5px;
+    color: #dddddd;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.logo img {
+    height: 60px;
+    margin-right: 20px;
+}
+
+.logo a {
+    text-decoration: none;
+}
+
+/* </Logo> */
+
+.gallery_link {
+    position: absolute;
+    left: 48%;
+    top: 48%;
+}
+
+/* <Menu> */
+
+.userarea {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 40px;
+    height: 100%;
+    float: right;
+}
+
+.menuitem {
+    align-self: baseline;
+    cursor: pointer;
+    margin: 0 20px;
+}
+
+.menuitem:active {
+    border-bottom: 1px solid white;
+    color: #990000;
+    text-shadow: 0 0 5px #000000;
+}
+
+.menuitem a:hover{
+    border-bottom: 1px solid white;
+    color: #990000;
+    text-shadow: 0 0 5px #000000;
+    transition: all ease 0.5s;
+}
+
+.menuitem a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    user-select: none;
+}
+
+.menuitem.home {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.menuitem.home:hover {
+    cursor: default;
+}
+
+.fa-motorcycle:hover {
+    color: #990000;
+    transform: scale(1.1) rotate(-10deg);
+    transition: all ease 0.5s;
+    cursor: pointer;
+}
+
+.dropmenu {
+    background-color: #153153;
+    padding: 20 10px 10px 10px;
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    z-index: 9999;
+}
+
+.rightdropmenu {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    left: 15px;
+}
+
+.dropmenu .menuitem {
+    margin: 10px 0;
+}
+
+.menuitem.dropdown:hover > .dropmenu {
+    opacity: 1;
+    visibility: visible;
+    transition: all ease 1s;
+}
+
+/* </Menu> */
+
+.container {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: stretch;
+}
+
+.container aside {
+    width: 20%;
+    max-width: 400px;
+}
+
+main {
+    min-width: 660px;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.backside {
+    z-index: -1;
+}
+
+.user_photo {
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px 20px 20px 0px;
+}
+
+.photocards {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 95vh;
+}
+
+.photocards .photocard .delete {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: none;
+    top: 10px;
+    right: 10px;
+    opacity: 0;
+}
+
+.photocards .photocard:hover > .delete {
+    opacity: 1;
+    transition: opacity ease 0.3s;
+}
+/* <Editor> */
+
+.editor {
+    margin-right: 20px;
+}
+
+/* <Editor.Image> */
+
+.image {
+    height: auto;
+    float: left;
+}
+
+.tabs {
+    font-size: 0;
+}
+
+.tab {
+    font-size: 16px;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 5px 0 5px;
+    border: 1px solid darkgrey;
+    border-bottom: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: darkgrey;
+}
+
+.tab.active {
+    border-color: antiquewhite;
+    padding: 10px 10px 0 10px;
+    color: white;
+}
+
+.tab > span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.background {
+    position: relative;
+    width: auto;
+    height: auto;
+    overflow: hidden;
+}
+
+.webcam_bg, .custom_bg {
+    border: 1px solid white;
+}
+
+.webcam_bg {
+    z-index: 1;
+}
+
+.custom_bg {
+    background: grey;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#active_sticker {
+    position: absolute;
+    width: 20%;
+    z-index: 2;
+    cursor: pointer;
+}
+
+/* </Editor.Image> */
+
+/* <Editor.Tools> */
+
+.tools {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+.tools h3 {
+    text-align: center;
+}
+#makePhoto {
+    justify-self: flex-end;
+    width: 50%;
+    font-size: 20px;
+}
+
+form[name=makephoto] {
+    text-align: center;
+}
+
+/* </Editor.Tools> */
+
+/* </Editor> */
+
+#content {
+     text-align: center;
+     padding-top: 10%;
+     color: #dddddd;
+}
+
+#content > * {
+    margin: 10px auto;
+    user-select: none;
+}
+
+#content > a {
+    display: block;
+    width: -moz-max-content;
+    width: max-content;
+}
+
+#content form > * {
+    margin: 10px auto;
+    background: dimgrey;
+    color: #ffffff;
+    display: block;
+    text-align: center;
+    line-height: 3;
+    width: 300px;
+    font-size: 16px;
+    border-color: #aaaaaa;
+}
+
+#content form > *:focus {
+    box-shadow: 0 0 3px white inset;
+    background-color: #292929;
+    outline: none;
+}
+
+#content form > *::placeholder {
+    color: #cccccc;
+}
+
+#content form > span {
+    color: red;
+    background: none;
+    line-height: 1;
+}
+
+#content form > button {
+    margin-top: 20px;
+    background-color: #191919;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+#content form > button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 3px white inset;
+    background-color: #292929;
+    transition: all ease 0.3s;
+}
+
+#content > p > a {
+    color: #dddddd;
+}
+
+#options {
+    margin-top: 20px;
+    color: #dddddd;
+}
+
+#options a {
+    color: #dddddd;
+    text-decoration: none;
+}
+
+#options a:hover {
+    text-decoration: underline;
+}
+
+/* <Gallery> */
+
+.gallery {
+    font-size: 0;
+    margin: 20px;
+}
+
+.photocard > img {
+    max-height: 250px;
+    width: auto;
+    max-width: 300px;
+    border: 3px solid black;
+}
+.photocard {
+    position: relative;
+    display: inline-block;
+    padding: 10px 10px 20px 10px;
+    background-color: #000;
+    border: 2px solid white;
+    transition: all ease 0.3s;
+    cursor: pointer;
+}
+
+.photocards :last-child {
+    margin-bottom: 0;
+}
+
+.info {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.fas, .far {
+    font-size: 20px;
+}
+
+.fas:before {
+    margin-right: 5px;
+}
+
+.fa-thumbs-up.active {
+    color: brown;
+}
+
+/* </Gallery> */
+
+/* <Stickers> */
+
+.slider_wrapper {
+    font-size: 0;
+    display: flex;
+    display: -o-flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+}
+
+.carousel_wrapper {
+    position: relative;
+    display: flex;
+    height: 200px;
+    flex: 1;
+    overflow: hidden;
+}
+
+.stickers {
+    position: relative;
+}
+
+.sticker > img {
+    max-width: 190px;
+    max-height: 190px;
+}
+
+.sticker {
+    min-width: 200px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
+}
+
+.sticker.active {
+    padding: 0;
+    border: 5px solid #dddddd;
+}
+
+.carousel {
+    height: 100%;
+    display: flex;
+    transform: translate(0px);
+    transition: all ease 0.3s;
+}
+
+.slider_arrow_left {
+    background: url(../img/icons/mini_arrows.png) left center no-repeat;
+}
+
+.slider_arrow_right {
+    background: url(../img/icons/mini_arrows.png) right center no-repeat;
+}
+
+.slider_arrow_left, .slider_arrow_right {
+    display: inline-block;
+    width: 40px;
+    height: 200px;
+    cursor: pointer;
+    border: 1px solid #777777;
+    opacity: 0.5;
+}
+
+.slider_arrow_left:hover, .slider_arrow_right:hover {
+    opacity: 1;
+    border-color: #ffffff;
+    transition: all ease 0.3s;
+}
+
+.slider_wrapper:hover > .slider_arrow_left, .slider_wrapper:hover > .slider_arrow_right {
+    opacity: 0.8;
+    transition: all ease 0.5s;
+}
+/* </Stickers> */
+
+
+/* <Modal photo> */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal_content {
+    background-color: #9c9c9c;
+    margin: auto;
+    border: 1px solid #888;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+}
+
+.modal_photo {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.modal_comments {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 10px;
+}
+
+p.author, p.date {
+    display: inline-block;
+    margin: 0 15px 20px 0;
+}
+
+p.text:before {
+    content: '"';
+    font-size: 2em;
+    line-height: 0.3;
+}
+
+.comment {
+    border: 1px solid white;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.text {
+    word-break: break-word;
+}
+
+form[name=comment_form] {
+    display: flex;
+}
+
+.modal_img {
+    width: 50vw;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* </Modal photo> */
+
+#videoElement {
+    width: 100%;
+    height: 100%;
+}

@@ -1,0 +1,32 @@
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column-reverse;
+    }
+    main {
+        width: 100%;
+    }
+    .container aside {
+        width: 100%;
+        max-width: none;
+    }
+    .user_photo {
+        padding: 20px 0;
+    }
+    .user_photo .photocard {
+        width: 45%;
+    }
+    .photocard > img {
+        max-width: none;
+    }
+    #content form > * {
+        line-height: 5;
+        width: 50%;
+        font-size: 30px;
+    }
+    #content > * {
+        font-size: 30px;
+    }
+    input[type=checkbox] {
+        transform: scale(2);
+    }
+}
